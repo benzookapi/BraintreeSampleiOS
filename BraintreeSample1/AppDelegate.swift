@@ -8,6 +8,8 @@
 
 import UIKit
 
+import Braintree
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -16,7 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        BTAppSwitch.setReturnURLScheme("jokamura.BraintreeSample1.payments")
         return true
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        if url.scheme.localizedCaseInsensitiveCompare("jokamura.BraintreeSample1.payments") == .OrderedSame {
+            return BTAppSwitch.handleOpenURL(url, sourceApplication:sourceApplication)
+        }
+        return false
     }
 
     func applicationWillResignActive(application: UIApplication) {

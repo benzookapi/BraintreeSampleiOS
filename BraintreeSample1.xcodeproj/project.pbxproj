@@ -12,9 +12,12 @@
 		4CEFCBBD1D8E5D9B005E15CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CEFCBBB1D8E5D9B005E15CD /* Main.storyboard */; };
 		4CEFCBBF1D8E5D9B005E15CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CEFCBBE1D8E5D9B005E15CD /* Assets.xcassets */; };
 		4CEFCBC21D8E5D9B005E15CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CEFCBC01D8E5D9B005E15CD /* LaunchScreen.storyboard */; };
+		D880197606FE18E5750B08C0 /* Pods_BraintreeSample1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B186BA299CD25289240E87E /* Pods_BraintreeSample1.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B186BA299CD25289240E87E /* Pods_BraintreeSample1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BraintreeSample1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D4871EEE70AD920ABE493AF /* Pods-BraintreeSample1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BraintreeSample1.release.xcconfig"; path = "Pods/Target Support Files/Pods-BraintreeSample1/Pods-BraintreeSample1.release.xcconfig"; sourceTree = "<group>"; };
 		4CEFCBB41D8E5D9B005E15CD /* BraintreeSample1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BraintreeSample1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CEFCBB71D8E5D9B005E15CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CEFCBB91D8E5D9B005E15CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		4CEFCBBE1D8E5D9B005E15CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CEFCBC11D8E5D9B005E15CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CEFCBC31D8E5D9B005E15CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9DDF7CDB0758F108FB8B3EC /* Pods-BraintreeSample1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BraintreeSample1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BraintreeSample1/Pods-BraintreeSample1.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D880197606FE18E5750B08C0 /* Pods_BraintreeSample1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				4CEFCBB61D8E5D9B005E15CD /* BraintreeSample1 */,
 				4CEFCBB51D8E5D9B005E15CD /* Products */,
+				FC77ED8D5D629FF5BBB100B6 /* Pods */,
+				B71F41165A7F9595D24C1A4D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = BraintreeSample1;
 			sourceTree = "<group>";
 		};
+		B71F41165A7F9595D24C1A4D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1B186BA299CD25289240E87E /* Pods_BraintreeSample1.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FC77ED8D5D629FF5BBB100B6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F9DDF7CDB0758F108FB8B3EC /* Pods-BraintreeSample1.debug.xcconfig */,
+				1D4871EEE70AD920ABE493AF /* Pods-BraintreeSample1.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4CEFCBC61D8E5D9B005E15CD /* Build configuration list for PBXNativeTarget "BraintreeSample1" */;
 			buildPhases = (
+				ED19F83D235BB0BCB5F24249 /* [CP] Check Pods Manifest.lock */,
 				4CEFCBB01D8E5D9B005E15CD /* Sources */,
 				4CEFCBB11D8E5D9B005E15CD /* Frameworks */,
 				4CEFCBB21D8E5D9B005E15CD /* Resources */,
+				3131428D0664342AA935F8B9 /* [CP] Embed Pods Frameworks */,
+				E97134CA45590C7B996070BE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -129,6 +156,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3131428D0664342AA935F8B9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BraintreeSample1/Pods-BraintreeSample1-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E97134CA45590C7B996070BE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BraintreeSample1/Pods-BraintreeSample1-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED19F83D235BB0BCB5F24249 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4CEFCBB01D8E5D9B005E15CD /* Sources */ = {
@@ -249,6 +324,7 @@
 		};
 		4CEFCBC71D8E5D9B005E15CD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9DDF7CDB0758F108FB8B3EC /* Pods-BraintreeSample1.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BraintreeSample1/Info.plist;
@@ -260,6 +336,7 @@
 		};
 		4CEFCBC81D8E5D9B005E15CD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D4871EEE70AD920ABE493AF /* Pods-BraintreeSample1.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BraintreeSample1/Info.plist;
@@ -288,6 +365,7 @@
 				4CEFCBC81D8E5D9B005E15CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

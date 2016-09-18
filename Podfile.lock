@@ -1,0 +1,33 @@
+PODS:
+  - Braintree (4.6.1):
+    - Braintree/Card (= 4.6.1)
+    - Braintree/Core (= 4.6.1)
+    - Braintree/PayPal (= 4.6.1)
+    - Braintree/UI (= 4.6.1)
+  - Braintree/Card (4.6.1):
+    - Braintree/Core
+  - Braintree/Core (4.6.1)
+  - Braintree/PayPal (4.6.1):
+    - Braintree/Core
+    - Braintree/PayPalOneTouch
+  - Braintree/PayPalDataCollector (4.6.1):
+    - Braintree/Core
+    - Braintree/PayPalUtils
+  - Braintree/PayPalOneTouch (4.6.1):
+    - Braintree/Core
+    - Braintree/PayPalDataCollector
+    - Braintree/PayPalUtils
+  - Braintree/PayPalUtils (4.6.1)
+  - Braintree/UI (4.6.1):
+    - Braintree/Card
+    - Braintree/Core
+
+DEPENDENCIES:
+  - Braintree
+
+SPEC CHECKSUMS:
+  Braintree: 70926d146412e9148ea383b76333eed992e53eb4
+
+PODFILE CHECKSUM: aa988f29b483f79f74b53e4c35b3075347269bd1
+
+COCOAPODS: 1.1.0.rc.1
