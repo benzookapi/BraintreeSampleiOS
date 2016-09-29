@@ -10,94 +10,120 @@ import UIKit
 
 import Braintree
 
-class ViewController: UIViewController, BTDropInViewControllerDelegate {
-    
-    var braintreeClient: BTAPIClient?
+//import Braintree.BraintreeUI
+
+//import Braintree.BTAppSwitch
+
+
+class ViewController: UIViewController, BTViewControllerPresentingDelegate {
+
+    var braintreeClient: BTAPIClient!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let clientTokenURL = NSURL(string: "https://jo-pp-ruby-demo.herokuapp.com/brain/get_token")!
-        let clientTokenRequest = NSMutableURLRequest(URL: clientTokenURL)
-        clientTokenRequest.setValue("text/plain", forHTTPHeaderField: "Accept")
-        
-        NSURLSession.sharedSession().dataTaskWithRequest(clientTokenRequest) { (data, response, error) -> Void in
-            // TODO: Handle errors
-            let clientToken = String(data: data!, encoding: NSUTF8StringEncoding)
-            
-            print(clientToken!)
-            
-            self.braintreeClient = BTAPIClient(authorization: clientToken!)
-            // As an example, you may wish to present our Drop-in UI at this point.
-            // Continue to the next section to learn more...
-            
-            
-            self.tappedMyPayButton()
-            
-            
-            }.resume()
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func tappedMyPayButton() {
-        
-        // If you haven't already, create and retain a `BTAPIClient` instance with a
-        // tokenization key OR a client token from your server.
-        // Typically, you only need to do this once per session.
-        // braintreeClient = BTAPIClient(authorization: CLIENT_AUTHORIZATION)
-        
-        // Create a BTDropInViewController
-        let dropInViewController = BTDropInViewController(APIClient: braintreeClient!)
-        dropInViewController.delegate = self
+        //let clientTokenURL = NSURL(string: "https://jo-pp-ruby-demo.herokuapp.com/brain/get_token")!
+        //let clientTokenRequest = NSMutableURLRequest(URL: clientTokenURL)
+        //clientTokenRequest.setValue("text/plain", forHTTPHeaderField: "Accept")
         
         
-        // Customize UI
-        let paymentRequest = BTPaymentRequest()
-        paymentRequest.displayAmount = "$22"
-        paymentRequest.amount = "22"
+        let myUrl:NSURL = NSURL(string:"https://jo-pp-ruby-demo.herokuapp.com/brain/get_token")!
+        let myRequest:NSURLRequest  = NSURLRequest(URL: myUrl)
+        let res: AutoreleasingUnsafeMutablePointer<NSURLResponse?> = nil
+        var data:NSData!
+        do {
+          data = try NSURLConnection.sendSynchronousRequest(myRequest, returningResponse: res)
+        } catch let e as NSError {
+            print("\(e)")
+        }
+        let myData:NSString = NSString(data:data, encoding: NSUTF8StringEncoding)!
+        let clientToken = myData as String
+        print(clientToken)
         
-        dropInViewController.paymentRequest = paymentRequest
+        self.braintreeClient = BTAPIClient(authorization: clientToken)
+        
+        let button = BTPaymentButton(APIClient: braintreeClient!) { (paymentMethodNonce, error) in
+            if let paymentMethodNonce = paymentMethodNonce {
+                // Send the nonce to your server for processing.
+                print("Got a nonce: \(paymentMethodNonce.nonce)")
+                self.postNonceToServer(paymentMethodNonce.nonce)
+            } else if let error = error {
+                // Tokenization failed; check `error` for the cause of the failure.
+                print("Error: \(error)")
+            } else {
+                // User canceled.
+            }
+        }
+        // Example: Customize frame, or use autolayout.
+        button.frame = CGRectMake(10, 100, 300, 44)
+        button.center = CGPointMake(self.view.bounds.width / 2, self.view.bounds.height / 2);
+        button.viewControllerPresentingDelegate = self
+        //button.appSwitchDelegate = self // Optional
+        self.view.addSubview(button)
         
         
-        // This is where you might want to customize your view controller (see below)
+        //FOR CUSTOM UI
+        /*let customPayPalButton = UIButton(frame: CGRectMake(100, 100, 200, 60))
+        customPayPalButton.backgroundColor = UIColor.blueColor()
+        customPayPalButton.layer.masksToBounds = true
+        customPayPalButton.setTitle("Pay With PayPal", forState: UIControlState.Normal)
+        customPayPalButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        customPayPalButton.addTarget(self, action: #selector(ViewController.customPayPalButtonTapped(_:)), forControlEvents: .TouchUpInside)
+        self.view.addSubview(customPayPalButton)*/
         
-        // The way you present your BTDropInViewController instance is up to you.
-        // In this example, we wrap it in a new, modally-presented navigation controller:
-        dropInViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: UIBarButtonSystemItem.Cancel,
-            target: self, action: #selector(self.userDidCancelPayment))
-        
-        let navigationController = UINavigationController(rootViewController: dropInViewController)
-        
-        presentViewController(navigationController, animated: true, completion: nil)
     }
     
-    func userDidCancelPayment() {
+    //FOR CUSTOM UI
+    /*func customPayPalButtonTapped(button: UIButton) {
+        let payPalDriver = BTPayPalDriver(APIClient:self.braintreeClient)
+        payPalDriver.viewControllerPresentingDelegate = self
+        //payPalDriver.appSwitchDelegate = self
+        
+        // Start the Vault flow, or...
+        //payPalDriver.authorizeAccountWithCompletion() { (tokenizedPayPalAccount, error) -> Void in
+        //    ...
+        //}
+        
+        // ...start the Checkout flow
+        let request = BTPayPalRequest(amount: "33")
+        payPalDriver.requestOneTimePayment(request) { (tokenizedPayPalAccount, error) -> Void in
+            guard let tokenizedPayPalAccount = tokenizedPayPalAccount else {
+                if let error = error {
+                    // Handle error
+                    print("AAAAAAAA\(error)")
+                } else {
+                    // User canceled
+                }
+                return
+            }
+            print("Got a nonce! \(tokenizedPayPalAccount.nonce)")
+            self.postNonceToServer(tokenizedPayPalAccount.nonce)
+        }
+    }*/
+    
+    // MARK: - BTViewControllerPresentingDelegate
+    
+    func paymentDriver(driver: AnyObject, requestsPresentationOfViewController viewController: UIViewController) {
+        presentViewController(viewController, animated: true, completion: nil)
+    }
+    
+    func paymentDriver(driver: AnyObject, requestsDismissalOfViewController viewController: UIViewController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func dropInViewController(viewController: BTDropInViewController,
-                              didSucceedWithTokenization paymentMethodNonce: BTPaymentMethodNonce)
-    {
-        // Send payment method nonce to your server for processing
-        postNonceToServer(paymentMethodNonce.nonce)
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func dropInViewControllerDidCancel(viewController: BTDropInViewController) {
-        dismissViewControllerAnimated(true, completion: nil)
-    }
+    // Finish Payment on my server
     
     func postNonceToServer(paymentMethodNonce: String) {
+        
+        //let dataCollector = BTDataCollector(environment: .Sandbox)
+        //let deviceData = dataCollector.collectCardFraudData()
+        
+        //print("\(deviceData)")
+        
         let paymentURL = NSURL(string: "https://jo-pp-ruby-demo.herokuapp.com/brain/checkout_ec")!
         let request = NSMutableURLRequest(URL: paymentURL)
-        request.HTTPBody = "payment_method_nonce=\(paymentMethodNonce)&amount=22&currency=USD&device_data=".dataUsingEncoding(NSUTF8StringEncoding)
+        request.HTTPBody = "payment_method_nonce=\(paymentMethodNonce)&amount=33&currency=USD".dataUsingEncoding(NSUTF8StringEncoding)
         request.HTTPMethod = "POST"
         
         NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in

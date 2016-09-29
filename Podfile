@@ -6,5 +6,6 @@ target 'BraintreeSample1' do
   use_frameworks!
 
   pod 'Braintree'
+  pod 'Braintree/DataCollector'
 
 end

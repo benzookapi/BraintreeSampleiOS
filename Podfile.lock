@@ -7,6 +7,8 @@ PODS:
   - Braintree/Card (4.6.1):
     - Braintree/Core
   - Braintree/Core (4.6.1)
+  - Braintree/DataCollector (4.6.1):
+    - Braintree/Core
   - Braintree/PayPal (4.6.1):
     - Braintree/Core
     - Braintree/PayPalOneTouch
@@ -24,10 +26,11 @@ PODS:
 
 DEPENDENCIES:
   - Braintree
+  - Braintree/DataCollector
 
 SPEC CHECKSUMS:
   Braintree: 70926d146412e9148ea383b76333eed992e53eb4
 
-PODFILE CHECKSUM: aa988f29b483f79f74b53e4c35b3075347269bd1
+PODFILE CHECKSUM: 2967bc4e325e40db5d66e94d721a909906307746
 
 COCOAPODS: 1.1.0.rc.1

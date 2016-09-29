@@ -18,6 +18,7 @@
 /* Begin PBXFileReference section */
 		1B186BA299CD25289240E87E /* Pods_BraintreeSample1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BraintreeSample1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D4871EEE70AD920ABE493AF /* Pods-BraintreeSample1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BraintreeSample1.release.xcconfig"; path = "Pods/Target Support Files/Pods-BraintreeSample1/Pods-BraintreeSample1.release.xcconfig"; sourceTree = "<group>"; };
+		4C3221851D9D1980001AFD21 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		4CEFCBB41D8E5D9B005E15CD /* BraintreeSample1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BraintreeSample1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CEFCBB71D8E5D9B005E15CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CEFCBB91D8E5D9B005E15CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +44,7 @@
 		4CEFCBAB1D8E5D9B005E15CD = {
 			isa = PBXGroup;
 			children = (
+				4C3221851D9D1980001AFD21 /* Header.h */,
 				4CEFCBB61D8E5D9B005E15CD /* BraintreeSample1 */,
 				4CEFCBB51D8E5D9B005E15CD /* Products */,
 				FC77ED8D5D629FF5BBB100B6 /* Pods */,
@@ -274,6 +276,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ./Pods/Braintree;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -314,6 +317,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ./Pods/Braintree;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
@@ -331,6 +335,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jokamura.BraintreeSample1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = Header.h;
 			};
 			name = Debug;
 		};
@@ -343,6 +348,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jokamura.BraintreeSample1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = Header.h;
 			};
 			name = Release;
 		};
