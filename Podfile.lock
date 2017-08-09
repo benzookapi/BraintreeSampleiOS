@@ -1,26 +1,26 @@
 PODS:
-  - Braintree (4.6.1):
-    - Braintree/Card (= 4.6.1)
-    - Braintree/Core (= 4.6.1)
-    - Braintree/PayPal (= 4.6.1)
-    - Braintree/UI (= 4.6.1)
-  - Braintree/Card (4.6.1):
+  - Braintree (4.8.5):
+    - Braintree/Card (= 4.8.5)
+    - Braintree/Core (= 4.8.5)
+    - Braintree/PayPal (= 4.8.5)
+    - Braintree/UI (= 4.8.5)
+  - Braintree/Card (4.8.5):
     - Braintree/Core
-  - Braintree/Core (4.6.1)
-  - Braintree/DataCollector (4.6.1):
+  - Braintree/Core (4.8.5)
+  - Braintree/DataCollector (4.8.5):
     - Braintree/Core
-  - Braintree/PayPal (4.6.1):
+  - Braintree/PayPal (4.8.5):
     - Braintree/Core
     - Braintree/PayPalOneTouch
-  - Braintree/PayPalDataCollector (4.6.1):
+  - Braintree/PayPalDataCollector (4.8.5):
     - Braintree/Core
     - Braintree/PayPalUtils
-  - Braintree/PayPalOneTouch (4.6.1):
+  - Braintree/PayPalOneTouch (4.8.5):
     - Braintree/Core
     - Braintree/PayPalDataCollector
     - Braintree/PayPalUtils
-  - Braintree/PayPalUtils (4.6.1)
-  - Braintree/UI (4.6.1):
+  - Braintree/PayPalUtils (4.8.5)
+  - Braintree/UI (4.8.5):
     - Braintree/Card
     - Braintree/Core
 
@@ -29,7 +29,7 @@ DEPENDENCIES:
   - Braintree/DataCollector
 
 SPEC CHECKSUMS:
-  Braintree: 70926d146412e9148ea383b76333eed992e53eb4
+  Braintree: 12225834d0e39ffad56888756a3c0d8bda043d53
 
 PODFILE CHECKSUM: 2967bc4e325e40db5d66e94d721a909906307746
 
