@@ -79,10 +79,10 @@ class ViewController: UIViewController, BTViewControllerPresentingDelegate {
         request.httpBody = "payment_method_nonce=\(paymentMethodNonce)&amount=33&currency=USD".data(using: String.Encoding.utf8)
         request.httpMethod = "POST"
         
-        //URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
+        URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
             // TODO: Handle success or failure
-            //print(response)
-        //    }) .resume()
+            print(response)
+           }) .resume()
     }
 
 
