@@ -23,14 +23,27 @@ PODS:
   - Braintree/UI (4.8.5):
     - Braintree/Card
     - Braintree/Core
+  - Braintree/UnionPay (4.8.5):
+    - Braintree/Card
+    - Braintree/Core
+  - BraintreeDropIn (5.2.2):
+    - BraintreeDropIn/DropIn (= 5.2.2)
+  - BraintreeDropIn/DropIn (5.2.2):
+    - Braintree/Card (~> 4.0)
+    - Braintree/Core (~> 4.0)
+    - Braintree/UnionPay (~> 4.0)
+    - BraintreeDropIn/UIKit
+  - BraintreeDropIn/UIKit (5.2.2)
 
 DEPENDENCIES:
   - Braintree
   - Braintree/DataCollector
+  - BraintreeDropIn
 
 SPEC CHECKSUMS:
   Braintree: 12225834d0e39ffad56888756a3c0d8bda043d53
+  BraintreeDropIn: 0ff4879547af66dae814911992e01324975d556d
 
-PODFILE CHECKSUM: 2967bc4e325e40db5d66e94d721a909906307746
+PODFILE CHECKSUM: 94ee0e7cfbea5911155f18a8f772819841aef3d7
 
 COCOAPODS: 1.1.0.rc.1

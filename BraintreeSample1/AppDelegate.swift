@@ -21,13 +21,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         BTAppSwitch.setReturnURLScheme("jokamura.BraintreeSample1.payments")
         return true
     }
+        
     
-    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
         if url.scheme?.localizedCaseInsensitiveCompare("jokamura.BraintreeSample1.payments") == .orderedSame {
-            return BTAppSwitch.handleOpen(url, sourceApplication:sourceApplication)
+            return BTAppSwitch.handleOpen(url, options: options)
         }
         return false
     }
+    
+    // If you support iOS 7 or 8, add the following method.
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        if url.scheme?.localizedCaseInsensitiveCompare("jokamura.BraintreeSample1.payments") == .orderedSame {
+            return BTAppSwitch.handleOpen(url, sourceApplication: sourceApplication)
+        }
+        return false
+    }
+
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

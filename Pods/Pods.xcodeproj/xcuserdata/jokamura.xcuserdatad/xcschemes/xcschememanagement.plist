@@ -19,6 +19,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>BraintreeDropIn-Braintree-UIKit-Localization.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>BraintreeDropIn.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-BraintreeSample1.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4BA368239C4782EDB62CC44B82C83CF0</key>
+		<key>01338D8001A9F42E5AEE50663BD48FC5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6C558E4C646D7A459315AE85A93D3D56</key>
+		<key>26056B7A1F4952EF29ED3E2B67B67D2D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B057F15D246891E910F4A3DF13DC0292</key>
+		<key>73DAC88F67F0521291BF7F25E97DFB2B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DDFE412900D62C7CD77A09C0395506A7</key>
+		<key>8FC9D5863B3ED2235C3D6373A2D2C2BF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9909B17D528D9BF3DDBF5F8A6209A7FE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D6592433A96376DD6823F58359BB221B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
